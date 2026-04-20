@@ -8,7 +8,7 @@ function renderStoreManagement() {
             
             <div class="form-group">
                 <label>Tên Website</label>
-                <input type="text" id="siteName" value="Shopee Vietnam">
+                <input type="text" id="siteName" placeholder ="Ecommerce">
             </div>
             
             <div class="form-group">

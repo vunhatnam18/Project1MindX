@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nhà làm
+</title>
+<link rel = "stylesheet" href = "styles.css">
+</head>
+<body>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"><span id="toast-msg">Thông báo</span></div>
+
+<!-- ===== BUYER LOGIN MODAL ===== -->
+<div class="overlay" id="loginOverlay">
+  <div class="modal">
+    <div class="modal-header buyer">
+      <button class="modal-close" onclick="closeModal('loginOverlay')">✕</button>
+      <h2>Đăng Nhập Khách Hàng</h2>
+    </div>
+    <div class="modal-body">
+      <div class="error-msg" id="loginErr">Email hoặc mật khẩu không đúng.</div>
+      <div class="form-group"><label>Email/Số điện thoại</label><input type="text" id="lgEmail" placeholder="Email/sđt khách hàng" ></div>
+      <div class="form-group"><label>Tên đăng nhập</label><input type = "text" id ="lgName" placeholder="Tên khách hàng"></div>
+      <div class="form-group"><label>Mật khẩu</label><input type="password" id="lgPass" placeholder="Mật khẩu"></div>
+      <button class="btn-primary" onclick="doLogin()">Đăng Nhập</button>
+      <div class="modal-switch"><a onclick="switchModal('loginOverlay','registerOverlay')">Đăng ký</a> &nbsp;·&nbsp;<a class="seller-link" onclick="switchModal('loginOverlay','sellerLoginOverlay')">Kênh người bán</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BUYER REGISTER MODAL ===== -->
+<div class="overlay" id="registerOverlay">
+  <div class="modal">
+    <div class="modal-header buyer">
+      <button class="modal-close" onclick="closeModal('registerOverlay')">✕</button>
+      <h2>Đăng Ký Khách Hàng</h2>
+    </div>
+    <div class="modal-body">
+      <div class="error-msg" id="regErr">Vui lòng điền đầy đủ thông tin.</div>
+      <div class="success-msg" id="regOk">Đăng ký thành công! Đang đăng nhập...</div>
+      <div class="form-group"><label>Tên khách hàng</label><input type="text" id="rgName" placeholder="Tên khách hàng"></div>
+      <div class="form-group"><label>Email</label><input type="email" id="rgEmail" placeholder="example@email.com"></div>
+      <div class="form-group"><label>Số điện thoại</label><input type="tel" id="rgPhone" placeholder="0912 345 678"></div>
+      <div class="form-group"><label>Mật khẩu</label><input type="password" id="rgPass" placeholder="Tối thiểu 8 ký tự"></div>
+      <button class="btn-primary" onclick="doBuyerRegister()">Đăng Ký</button>
+      <div class="modal-switch"><a onclick="switchModal('registerOverlay','loginOverlay')">Đăng nhập</a> &nbsp;·&nbsp;<a class="seller-link" onclick="switchModal('registerOverlay','sellerRegOverlay')">Kênh người bán</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SELLER LOGIN MODAL ===== -->
+<div class="overlay" id="sellerLoginOverlay">
+  <div class="modal">
+    <div class="modal-header seller">
+      <button class="modal-close" onclick="closeModal('sellerLoginOverlay')">✕</button>
+      <h2>Đăng Nhập Kênh Người Bán</h2>
+    </div>
+    <div class="modal-body">
+      <div class="error-msg" id="sellerLoginErr">Email hoặc mật khẩu không đúng.</div>
+      <div class="form-group"><label>Email người bán</label><input type="text" id="slEmail" placeholder="shop@email.com"></div>
+      <div class="form-group"><label>Tên shop</label><input type="text" id="slName" placeholder="Tên Shop"></div>
+      <div class="form-group"><label>Mật khẩu</label><input type="password" id="slPass" placeholder="Mật khẩu"></div>
+      <button class="btn-seller-primary" onclick="doSellerLogin()">Đăng Nhập Kênh Bán Hàng</button>
+      <div class="modal-switch"><a class="seller-link" onclick="switchModal('sellerLoginOverlay','sellerRegOverlay')">Đăng ký người bán</a> &nbsp;·&nbsp; <a onclick="switchModal('sellerLoginOverlay','loginOverlay')">Tôi là khách hàng</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SELLER REGISTER MODAL ===== -->
+<div class="overlay" id="sellerRegOverlay">
+  <div class="modal modal-lg">
+    <div class="modal-header seller">
+      <button class="modal-close" onclick="closeModal('sellerRegOverlay')">✕</button>
+      <h2>Đăng Ký Kênh Người Bán</h2>
+    </div>
+    <div class="modal-body">
+      <div class="error-msg" id="sellerRegErr">Vui lòng điền đầy đủ thông tin.</div>
+      <div class="success-msg" id="sellerRegOk">Đăng ký thành công</div>
+      <div class="form-row">
+        <div class="form-group"><label>Họ và tên *</label><input type="text" id="srName"></div>
+        <div class="form-group"><label>Tên gian hàng *</label><input type="text" id="srShop" ></div>
+      </div>
+      <div class = "form-row">
+      <div class="form-group"><label>Email *</label><input type="email" id="srEmail"></div>
+      <div class="form-group"><label>Số điẹn thoại *</label><input type="text" id="srSđt"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Mật khẩu *</label><input type="password" id="srPass" placeholder="Tối thiểu 8 ký tự"></div>
+        <div class="form-group"><label>Xác nhận mật khẩu *</label><input type="password" id="srPass2"></div>
+      </div>
+      <button class="btn-seller-primary" onclick="doSellerRegister()">Đăng Ký Kênh Bán Hàng</button>
+      <div class="modal-switch">Đã có tài khoản?  <a class="seller-link" onclick="switchModal('sellerRegOverlay','sellerLoginOverlay')">Đăng nhập</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADD/EDIT PRODUCT MODAL ===== -->
+<div class="overlay" id="productFormOverlay">
+  <div class="modal modal-lg">
+    <div class="modal-header seller">
+      <button class="modal-close" onclick="closeModal('productFormOverlay')">✕</button>
+      <h2 id="pfTitle">Thêm Sản Phẩm Mới</h2>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Loại sản phẩm</label>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+          <div id="pfIconPreview" style="width:52px;height:52px;background:#f0fff4;border:2px solid #00b14f;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px">📦</div>
+        </div>
+        <div class="emoji-grid" id="emojiGrid"></div>
+        <input type="hidden" id="pfIcon">
+      </div>
+      <div class="form-group"><label>Tên sản phẩm </label><input type="text" id="pfName" ></div>      
+      <div class="form-row-3">
+        <div class="form-group"><label>Giá bán (sau khi giảm giá) (₫) </label><input type="number" id="pfPrice" placeholder="0" ></div>
+        <div class="form-group"><label>Giá gốc (₫)</label><input type="number" id="pfOri" placeholder="0"></div>
+      </div>
+      
+      <div style="display:flex;gap:10px;margin-top:6px">
+        <button onclick="closeModal('productFormOverlay')" style="flex:1;padding:11px;background:#f5f5f5;border:none;border-radius:8px;color:#555;font-size:13px;font-weight:600;cursor:pointer">Hủy</button>
+        <button class="btn-seller-primary" style="flex:2;margin-top:0" onclick="saveProduct()">Lưu Sản Phẩm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DELETE CONFIRM MODAL ===== -->
+<div class="overlay" id="deleteConfirmOverlay">
+  <div class="confirm-modal">
+    <div class="ci">🗑️</div>
+    <h3>Xóa sản phẩm?</h3>
+    <p id="deleteConfirmMsg">Bạn có chắc chắn muốn xóa sản phẩm này? Hành động này không thể hoàn tác.</p>
+    <div class="confirm-btns">
+      <button class="btn-cancel-del" onclick="closeModal('deleteConfirmOverlay')">Hủy</button>
+      <button class="btn-confirm-del" id="confirmDelBtn">Xóa</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<div class="lz-header">
+  <div class="lz-top-bar">
+    <a class="seller-portal-link" onclick="showPage('seller')">Kênh Người Bán</a>
+    <a>Tải Ứng Dụng</a>
+    <a onclick="showPage('orders')">Theo dõi đơn hàng</a>
+    <a>Hỗ Trợ</a>
+    <span id="topBarAuth"></span>
+  </div>
+  <div class="lz-nav">
+    <a class="lz-logo" onclick="showPage('home')">Laz<span>a</span>da</a>
+    <div class="lz-search">
+      <input type="text" placeholder="Tìm kiếm sản phẩm, thương hiệu...">
+      <button>🔍 TÌM KIẾM</button>
+    </div>
+    <div class="lz-nav-icons">
+      <a class="lz-icon-btn" onclick="showPage('orders')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        Đơn Hàng
+      </a>
+      <a class="lz-icon-btn" onclick="showPage('cart')">
+        <div class="lz-cart-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span class="lz-badge" id="cartBadge">0</span>
+        </div>
+        Giỏ Hàng
+      </a>
+      <div id="navAuthArea"></div>
+    </div>
+  </div>
+  <div class="lz-cats">
+    <a onclick="showPage('home')" id="catHome" class="active">🏠 Trang Chủ</a>
+    <a>📱 Điện Tử</a><a>👗 Thời Trang</a><a>🏠 Nhà Cửa</a>
+    <a>💄 Làm Đẹp</a><a>🏋️ Thể Thao</a><a>🍼 Mẹ & Bé</a>
+    <a>🎮 Gaming</a><a>🚗 Ô Tô</a><a>📚 Sách</a>
+    <a style="color:#f05b5a;font-weight:600">🔥 Flash Sale</a>
+  </div>
+</div>
+
+<!-- ===== PAGE: HOME ===== -->
+<div class="page active" id="page-home">
+  <div class="lz-body">
+    <div class="lz-main-grid">
+      <div class="lz-sidebar">
+        <div class="lz-sidebar-title">📋 Danh mục sản phẩm</div>
+        <ul>
+          <li><a><span class="cat-icon" style="background:#e3f2fd">📱</span>Điện Thoại & Máy Tính</a></li>
+          <li><a><span class="cat-icon" style="background:#fce4ec">👗</span>Thời Trang Nữ</a></li>
+          <li><a><span class="cat-icon" style="background:#e8f5e9">👔</span>Thời Trang Nam</a></li>
+          <li><a><span class="cat-icon" style="background:#fff3e0">🏠</span>Nhà Cửa & Đời Sống</a></li>
+          <li><a><span class="cat-icon" style="background:#fce4ec">💄</span>Sức Khỏe & Làm Đẹp</a></li>
+          <li><a><span class="cat-icon" style="background:#e8f5e9">👶</span>Mẹ & Bé</a></li>
+          <li><a><span class="cat-icon" style="background:#e3f2fd">🎮</span>Thiết Bị Điện Tử</a></li>
+          <li><a><span class="cat-icon" style="background:#fff3e0">🏋️</span>Thể Thao & Du Lịch</a></li>
+          <li><a><span class="cat-icon" style="background:#f3e5f5">🎒</span>Túi Xách & Phụ Kiện</a></li>
+          <li><a><span class="cat-icon" style="background:#e3f2fd">⌚</span>Đồng Hồ</a></li>
+          <li><a><span class="cat-icon" style="background:#fff8e1">🚗</span>Ô Tô & Xe Máy</a></li>
+          <li><a><span class="cat-icon" style="background:#e8f5e9">📚</span>Sách & Văn Phòng</a></li>
+        </ul>
+      </div>
+      <div class="lz-hero">
+        <div class="lz-banner">
+          <div class="lz-banner-slide b1 active" id="s1"><div class="lz-banner-text"><h2>Siêu Sale Tháng 4 🎉</h2><p>Giảm đến 80% hàng ngàn sản phẩm</p><div class="btn-banner">Mua Ngay</div></div></div>
+          <div class="lz-banner-slide b2" id="s2"><div class="lz-banner-text"><h2>Điện Thoại Giá Sốc 📱</h2><p>iPhone, Samsung giảm đến 30%</p><div class="btn-banner">Khám Phá</div></div></div>
+          <div class="lz-banner-slide b3" id="s3"><div class="lz-banner-text" style="color:#333"><h2>Fashion Week 👗</h2><p>Thời trang mới nhất, giảm giá khủng</p><div class="btn-banner" style="color:#e65c00">Xem Ngay</div></div></div>
+          <div class="lz-banner-dots">
+            <div class="lz-dot active" id="d1"></div><div class="lz-dot" id="d2"></div><div class="lz-dot" id="d3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lz-flash">
+      <div class="lz-flash-header">
+        <h3>FLASH SALE</h3>
+        <div class="lz-countdown">
+          <span style="color:#fff;font-size:11px;margin-right:4px">Kết thúc sau</span>
+          <div class="lz-time-block" id="th">02</div><span class="lz-time-sep">:</span>
+          <div class="lz-time-block" id="tm">34</div><span class="lz-time-sep">:</span>
+          <div class="lz-time-block" id="ts">15</div>
+        </div>
+      </div>
+      <div class="lz-flash-tab">
+        <button class="active">Đang diễn ra</button>
+      </div>
+      <div class="lz-products-row" id="objectProducts"></div>
+    </div>
+    <div class="lz-rec"><div class="lz-rec-grid" id="objectProducts"></div></div>
+  </div>
+</div>
+
+<!-- ===== PAGE: CART ===== -->
+<div class="page" id="page-cart">
+  <div class="sub-page-bar">
+    <button class="back-btn" onclick="showPage('home')">← Tiếp tục mua sắm</button>
+    <h2>Giỏ Hàng</h2>
+    <span id="cartCountLabel" style="font-size:13px;color:#888"></span>
+  </div>
+  <div id="cartContent"></div>
+</div>
+
+<!-- ===== PAGE: ORDERS ===== -->
+<div class="page" id="page-orders">
+  <div class="sub-page-bar">
+    <button class="back-btn" onclick="showPage('home')">← Quay lại</button>
+    <h2>Đơn Hàng Của Tôi</h2>
+  </div>
+  <div id="ordersContent"></div>
+</div>
+
+<!-- ===== PAGE: SELLER ===== -->
+<div class="page" id="page-seller">
+  <div id="sellerContent"></div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="lz-footer">
+  <div class="lz-footer-grid">
+    <div class="lz-footer-col"><h4>Chăm sóc khách hàng</h4><a href="#">Trung tâm Trợ giúp</a><a href="#">Hướng dẫn mua hàng</a><a href="#">Hướng dẫn bán hàng</a><a href="#">Chính sách hoàn trả</a><a href="#">Liên hệ</a></div>
+    <div class="lz-footer-col"><h4>Về Lazada</h4><a href="#">Giới thiệu về Lazada</a><a href="#">Tuyển dụng</a><a href="#">Điều khoản sử dụng</a><a href="#">Chính sách bảo mật</a></div>
+    <div class="lz-footer-col"><h4>Thanh toán</h4><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px"><span style="background:#f5f5f5;padding:4px 8px;border-radius:4px;font-size:11px;border:1px solid #ddd">VISA</span><span style="background:#f5f5f5;padding:4px 8px;border-radius:4px;font-size:11px;border:1px solid #ddd">Mastercard</span><span style="background:#f5f5f5;padding:4px 8px;border-radius:4px;font-size:11px;border:1px solid #ddd">MoMo</span><span style="background:#f5f5f5;padding:4px 8px;border-radius:4px;font-size:11px;border:1px solid #ddd">ZaloPay</span><span style="background:#f5f5f5;padding:4px 8px;border-radius:4px;font-size:11px;border:1px solid #ddd">COD</span></div></div>
+    <div class="lz-footer-col"><h4>Kết nối với chúng tôi</h4><div style="display:flex;gap:8px;margin-top:4px"><span style="background:#1877f2;color:#fff;padding:5px 10px;border-radius:4px;font-size:11px;cursor:pointer">Facebook</span><span style="background:#c62828;color:#fff;padding:5px 10px;border-radius:4px;font-size:11px;cursor:pointer">YouTube</span></div></div>
+  </div>
+  <div class="lz-footer-bottom"><p>© 2024 Lazada Vietnam. Tất cả các quyền được bảo lưu.</p></div>
+</div>
+
+<script src = "hieu.js"></script> 
+</body>
+</html>
