@@ -257,20 +257,18 @@ function renderCart(){
   }
   const checked=cart.filter(c=>c.checked);
   const subtotal=checked.reduce((s,c)=>s+c.product.price*c.qty,0);
-  const ship=checked.length>0?30000:0, disc=checked.length>0?15000:0;
-  const total=subtotal+ship-disc;
+  const ship= 0.02*subtotal;
+  const total=subtotal+ship
   const allCh=cart.every(c=>c.checked);
   box.innerHTML=`<div class="cart-wrap">
     <div>
       <div class="cart-items-box">
-
-        <div class="cart-shop-hdr">🏪 Lazada Official Store</div>
+        <div class="cart-shop-hdr"> Official Store</div>
         ${cart.map(c=>`<div class="cart-item">
           <input type="checkbox" class="item-cb" ${c.checked?'checked':''} onchange="toggleCheck(${c.product.id})">
           <div class="cart-img">${c.product.icon}</div>
           <div class="cart-info">
             <div class="ci-name">${c.product.name}</div>
-            <div class="ci-var">${c.product.variant}</div>
             <div><span class="ci-price">${fmt(c.product.price)}</span>${c.product.ori>c.product.price?`<span class="ci-ori">${fmt(c.product.ori)}</span>`:''}</div>
           </div>
           <div class="qty-ctrl">
@@ -279,20 +277,17 @@ function renderCart(){
             <button class="qty-btn" onclick="changeQty(${c.product.id},1)">+</button>
           </div>
           <div class="ci-total">${fmt(c.product.price*c.qty)}</div>
-          <button class="rm-btn" onclick="removeFromCart(${c.product.id})">🗑</button>
+          <button class="rm-btn" onclick="removeFromCart(${c.product.id})">Xoá</button>
         </div>`).join('')}
       </div>
     </div>
     <div>
       <div class="cart-summary-box">
-        <h3>Tóm Tắt Đơn Hàng</h3>
-        <div class="voucher-row"><input type="text" placeholder="Mã giảm giá / Voucher"><button>Áp dụng</button></div>
+        <h3>Thanh toán</h3>
         <div class="sum-row"><span>Tạm tính (${checked.reduce((s,c)=>s+c.qty,0)} sp)</span><span>${fmt(subtotal)}</span></div>
-        <div class="sum-row"><span>Phí vận chuyển</span><span>${ship>0?fmt(ship):'--'}</span></div>
-        <div class="sum-row" style="color:#27ae60"><span>Giảm giá</span><span>-${disc>0?fmt(disc):'0₫'}</span></div>
+        <div class="sum-row"><span>Phí vận chuyển</span><span>${checked.length>0?fmt(ship):'--'}</span></div>
         <div class="sum-row total"><span>Tổng cộng</span><span>${fmt(total)}</span></div>
-        <button class="checkout-btn" onclick="doCheckout()">Đặt Hàng (${checked.length} sp)</button>
-        <p style="font-size:11px;color:#aaa;text-align:center;margin-top:9px">Miễn phí đổi trả trong 30 ngày</p>
+        <button class="checkout-btn" onclick="doCheckout()">Đặt Hàng</button>
       </div>
     </div>
   </div>`;
@@ -302,37 +297,15 @@ function doCheckout(){
   if(!cart.filter(c=>c.checked).length){showToast('error','⚠ Chọn sản phẩm để đặt hàng');return;}
   if(!currentUser){openModal('loginOverlay');return;}
   cart=cart.filter(c=>!c.checked); updateCartBadge();
-  showToast('success','🎉 Đặt hàng thành công! Cảm ơn bạn.');
+  showToast('success', 'Đặt hàng thành công');
   setTimeout(renderCart,200);
 }
 
 // ============================================================
 // ORDERS
 // ============================================================
-function renderOrders(){
-  const box=document.getElementById('ordersContent');
-  if(!currentUser){
-    box.innerHTML=`<div class="need-login"><div class="nl-icon">🔐</div><h3>Vui lòng đăng nhập</h3><p>Bạn cần đăng nhập để xem lịch sử đơn hàng</p><button onclick="openModal('loginOverlay')">Đăng Nhập Ngay</button></div>`;
-    return;
-  }
-  const tabs=['Tất cả','Chờ xử lý','Đang giao','Đã giao','Đã hủy'];
-  const statusMap={delivered:'s-delivered',shipping:'s-shipping',processing:'s-processing',cancelled:'s-cancelled'};
-  box.innerHTML=`<div class="orders-wrap">
-    <div class="orders-tab-bar">${tabs.map((t,i)=>`<button class="${i===0?'active':''}" onclick="this.parentNode.querySelectorAll('button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">${t}</button>`).join('')}</div>
-    ${ORDERS_DATA.map(o=>`<div class="order-card">
-      <div class="order-hdr"><div class="order-id">Mã đơn: <strong>#${o.id}</strong> · ${o.date}</div><span class="order-status ${statusMap[o.status]}">${o.label}</span></div>
-      ${o.items.map(it=>`<div class="order-item-row"><div class="order-img">${it.icon}</div><div class="order-item-detail"><div class="order-item-name">${it.name}</div><div class="order-item-meta">x${it.qty} · ${it.variant}</div></div><div class="order-item-price">${fmt(it.price*it.qty)}</div></div>`).join('')}
-      <div class="order-footer">
-        <div class="order-total">Tổng: <strong>${fmt(o.total)}</strong></div>
-        <div class="order-actions">
-          ${o.status==='delivered'?`<button class="btn-outline" onclick="showToast('success','✓ Đã gửi yêu cầu đánh giá')">Đánh Giá</button>`:''}
-          <button class="btn-outline">Chi Tiết</button>
-          <button class="btn-reorder" onclick="showToast('info','🛒 Đang thêm lại vào giỏ...')">Mua Lại</button>
-        </div>
-      </div>
-    </div>`).join('')}
-  </div>`;
-}
+
+
 
 // ============================================================
 // SELLER DASHBOARD
@@ -384,7 +357,6 @@ function switchSellerTab(tab){
 }
 
 function renderSellerTab(){
-  if(sellerTab==='dashboard') return renderDashboard();
   if(sellerTab==='products') return renderProductManager();
   return renderDashboard();
 }
@@ -409,8 +381,8 @@ function renderDashboard(){
 function renderProductManager(){
   const myProds=getMyProducts();
   return `<div class="seller-topbar">
-    <h2>📦 Quản Lý Sản Phẩm</h2>
-    <button class="btn-add-product" onclick="openProductForm(null)">➕ Thêm Sản Phẩm Mới</button>
+    <h2> Quản Lý Sản Phẩm</h2>
+    <button class="btn-add-product" onclick="openProductForm(null)">Thêm Sản Phẩm Mới</button>
   </div>
   <div class="seller-section">
     <div class="seller-section-hdr">
@@ -477,7 +449,7 @@ function openProductForm(pid){
     // highlight selected emoji
     grid.querySelectorAll('.emoji-opt').forEach(el=>{ el.classList.toggle('selected',el.textContent===p.icon); });
   } else {
-    document.getElementById('pfTitle').textContent='➕ Thêm Sản Phẩm Mới';
+    document.getElementById('pfTitle').textContent=' Thêm Sản Phẩm Mới';
     document.getElementById('pfName').value='';
     document.getElementById('pfPrice').value='';
     document.getElementById('pfOri').value='';
@@ -531,7 +503,7 @@ function doDeleteProduct(pid){
   cart=cart.filter(c=>c.product.id!==pid);
   updateCartBadge();
   closeModal('deleteConfirmOverlay');
-  showToast('success','🗑 Đã xóa: '+(p?.name?.slice(0,28)||'sản phẩm'));
+  showToast('success','Đã xóa sản phẩm');
   refreshHomeProducts();
   switchSellerTab('products');
 }
