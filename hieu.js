@@ -4,27 +4,20 @@
 
 // danh sách sản phẩm
 let allProducts = [
-  {id:1,name:'Samsung Galaxy A55 5G 128GB',icon:'📱',price:8990000,ori:12990000,disc:30,status:'active',sellerOwned:false},
-  {id:2,name:'Tai nghe Sony WH-1000XM5',icon:'🎧',price:5490000,ori:9990000,disc:45,status:'active',sellerOwned:false},
-  {id:3,name:'Laptop ASUS VivoBook 15 i5',icon:'💻',price:12490000,ori:16590000,disc:25,status:'active',sellerOwned:false},
-  {id:4,name:'Apple Watch Series 9 GPS 41mm',icon:'⌚',price:9290000,ori:11590000,disc:20,status:'active',sellerOwned:false},
-  {id:5,name:'Máy ảnh Canon EOS M50 Mark II',icon:'📷',price:14990000,ori:22990000,disc:35,status:'active',sellerOwned:false},
-  {id:6,name:'Giày Nike Air Max 270',icon:'👟',price:2450000,ori:3200000,disc:23,status:'active',sellerOwned:false},
-  {id:7,name:'Balo Laptop chống thấm nước',icon:'🎒',price:389000,ori:650000,disc:40,status:'active',sellerOwned:false},
-  {id:8,name:'Nồi chiên không dầu Xiaomi 5L',icon:'🍳',price:1290000,ori:2190000,disc:41,status:'active',sellerOwned:false},
-  {id:9,name:'Vitamin C 1000mg Blackmores',icon:'💊',price:285000,ori:420000,disc:32,status:'active',sellerOwned:false},
-  {id:10,name:'Bàn chải điện Oral-B Pro 2000',icon:'🪥',price:590000,ori:890000,disc:34,status:'active',sellerOwned:false},
+  {id:1,name:'IPhone 17 Promax',icon:'Phone',price:8990000,ori:12990000,disc:30,status:'active',sellerOwned:false},
+  {id:2,name:'Tai nghe Baseus Wm2',icon:'Device',price:5490000,ori:9990000,disc:45,status:'active',sellerOwned:false},
+  {id:3,name:'Laptop ThinkPad X1 Carbon Gen 15',icon:'Laptop',price:12490000,ori:16590000,disc:25,status:'active',sellerOwned:false},
+  {id:4,name:'Apple Watch Series 10',icon:'Appliance',price:9290000,ori:11590000,disc:20,status:'active',sellerOwned:false},
+  {id:5,name:'Máy ảnh Canon V12',icon:'Camera',price:14990000,ori:22990000,disc:35,status:'active',sellerOwned:false},
+  {id:6,name:'Giày Nike AF1',icon:'Fashion',price:2450000,ori:3200000,disc:23,status:'active',sellerOwned:false},
+  {id:7,name:'Hộp Gói quà',icon:'Container',price:389000,ori:650000,disc:40,status:'active',sellerOwned:false},
+  {id:8,name:'Nồi Chiên Không Dầu AceCook',icon:'Cook',price:1290000,ori:2190000,disc:41,status:'active',sellerOwned:false},
+  {id:9,name:'Vitamin C Pharmacy',icon:'Medicine',price:285000,ori:420000,disc:32,status:'active',sellerOwned:false},
+  {id:10,name:'Bàn Chải Điện Colgate',icon:'Daily',price:590000,ori:890000,disc:34,status:'active',sellerOwned:false},
 ];
 
-// danh sách lịch sử mua hàng
-const ORDERS_DATA=[
-  {id:'LAZ2024031501',date:'15/03/2024',status:'delivered',label:'Đã Giao',items:[{name:'Samsung Galaxy A55',icon:'📱',qty:1,price:8990000,variant:'Màu: Xanh'},{name:'Tai nghe Sony',icon:'🎧',qty:1,price:5490000,variant:'Màu: Đen'}],total:14480000},
-  {id:'LAZ2024032201',date:'22/03/2024',status:'shipping',label:'Đang Giao',items:[{name:'Laptop ASUS VivoBook',icon:'💻',qty:1,price:12490000,variant:'RAM: 8GB'}],total:12490000},
-  {id:'LAZ2024040501',date:'05/04/2024',status:'processing',label:'Đang Xử Lý',items:[{name:'Nồi chiên Xiaomi',icon:'🍳',qty:2,price:1290000,variant:'5L'},{name:'Vitamin C',icon:'💊',qty:3,price:285000,variant:'60 viên'}],total:3435000},
-  {id:'LAZ2024020801',date:'08/02/2024',status:'cancelled',label:'Đã Hủy',items:[{name:'Giày Nike Air Max',icon:'👟',qty:1,price:2450000,variant:'Size 42'}],total:2450000},
-];
 
-const EMOJIS=['📱','💻','🎧','📷','⌚','🖨️','🖥️','⌨️','🖱️','🎮','📺','📡','👗','👔','👟','👠','👜','🎒','🧣','🧢','🏠','🛋️','🪑','🛏️','🍳','🫖','🧹','🪣','💊','🧴','💄','🪥','🏋️','⚽','🏸','🚴','🎯','🎸','📚','✏️','🧸','🎁','🌿','🍎','🧃','🚗','🏍️','🛵','✈️'];
+const EMOJIS=['Phone','Laptop','Device','Camera','Appliance','Gaming','Television','Fashion','Daily','Family','Interior','Food','Medical','Transport'];
 
 // ============================================================
 // STATE
@@ -252,7 +245,7 @@ function renderCart(){
   const lbl=document.getElementById('cartCountLabel');
   if(lbl)lbl.textContent=cart.length>0?`(${cart.reduce((s,c)=>s+c.qty,0)} sản phẩm)`:'';
   if(cart.length===0){
-    box.innerHTML=`<div style="max-width:1200px;margin:0 auto;padding:8px"><div class="cart-empty-box"><div class="ei">🛒</div><p>Giỏ hàng của bạn đang trống</p><button onclick="showPage('home')">Tiếp tục mua sắm</button></div></div>`;
+    box.innerHTML=`<div style="max-width:1200px;margin:0 auto;padding:8px"><div class="cart-empty-box"><div class="ei"></div><p>Giỏ hàng của bạn đang trống</p><button onclick="showPage('home')">Tiếp tục mua sắm</button></div></div>`;
     return;
   }
   const checked=cart.filter(c=>c.checked);
@@ -331,10 +324,10 @@ function renderSeller(){
 
   box.innerHTML=`<div class="seller-layout">
     <div class="seller-sidebar">
-      <div class="seller-sidebar-brand"><h3>🏪 ${currentUser.shopName||'My Shop'}</h3><p>${currentUser.email}</p></div>
+      <div class="seller-sidebar-brand"><h3> ${currentUser.shopName||'Shop'}</h3><p>${currentUser.email}</p></div>
       <nav class="seller-nav">
-        <a class="${sellerTab==='dashboard'?'active':''}" onclick="switchSellerTab('dashboard')"><span class="nav-icon">📊</span>Tổng quan</a>
-        <a class="${sellerTab==='products'?'active':''}" onclick="switchSellerTab('products')"><span class="nav-icon">📦</span>Quản lý sản phẩm</a>
+        <a class="${sellerTab==='dashboard'?'active':''}" onclick="switchSellerTab('dashboard')"><span class="nav-icon"></span>Tổng quan</a>
+        <a class="${sellerTab==='products'?'active':''}" onclick="switchSellerTab('products')"><span class="nav-icon"></span>Quản lý sản phẩm</a>
         <a class="logout-item" onclick="doLogout()"><span class="nav-icon"></span>Đăng xuất</a>
       </nav>
     </div>
@@ -395,7 +388,7 @@ function renderProductManager(){
 }
 
 function renderProductTable(prods){
-  if(prods.length===0) return `<div class="empty-table"><div class="ei">📦</div><p>Chưa có sản phẩm nào. Hãy thêm sản phẩm đầu tiên!</p><button class="btn-add-product" style="margin:10px auto" onclick="openProductForm(null)">➕ Thêm Sản Phẩm</button></div>`;
+  if(prods.length===0) return `<div class="empty-table"><div class="ei"></div><p>Chưa có sản phẩm nào. Hãy thêm sản phẩm đầu tiên!</p><button class="btn-add-product" style="margin:10px auto" onclick="openProductForm(null)">➕ Thêm Sản Phẩm</button></div>`;
   return `<table class="prod-table">
     <thead><tr><th>Sản phẩm</th><th>Giá bán</th><th>Giá gốc</th><th>Giảm giá</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
     <tbody>${prods.map(p=>`<tr id="prod-row-${p.id}">
@@ -437,7 +430,7 @@ function openProductForm(pid){
   editingProductId=pid;
   // Build emoji grid
   const grid=document.getElementById('emojiGrid');
-  grid.innerHTML=EMOJIS.map(e=>`<div class="emoji-opt ${e==='📦'?'selected':''}" onclick="selectEmoji('${e}')">${e}</div>`).join('');
+  grid.innerHTML=EMOJIS.map(e=>`<div class="emoji-opt ${e==='?'}" onclick="selectEmoji('${e.split('').slice(0,3).join('')}')">${e}</div>`).join('');
 
   if(pid){
     const p=allProducts.find(x=>x.id===pid);
@@ -492,7 +485,7 @@ function saveProduct(){
 // ============================================================
 function confirmDelete(pid){
   const p=allProducts.find(x=>x.id===pid);
-  document.getElementById('deleteConfirmMsg').textContent=`Xóa "${p?.name}"? Hành động này không thể hoàn tác.`;
+  document.getElementById('deleteConfirmMsg').textContent=`Xóa "${p?.name}"? Hành động này không thể quay lại.`;
   document.getElementById('confirmDelBtn').onclick=()=>doDeleteProduct(pid);
   openModal('deleteConfirmOverlay');
 }
@@ -511,12 +504,7 @@ function doDeleteProduct(pid){
 // ============================================================
 // SELLER: OTHER TABS
 // ============================================================
-function renderSellerOrders(){
-  return `<div class="seller-topbar"><h2>🛒 Đơn Hàng Nhận Được</h2></div>
-  <div class="seller-section">
-    <div class="empty-table" style="padding:60px 20px"><div class="ei">📭</div><p>Chưa có đơn hàng nào.<br>Thêm sản phẩm để bắt đầu nhận đơn!</p></div>
-  </div>`;
-}
+
 
 // ============================================================
 // TOAST
@@ -559,6 +547,60 @@ document.querySelectorAll('.lz-flash-tab button').forEach(b=>b.addEventListener(
 
 // CLOSE OVERLAY ON BG CLICK
 document.querySelectorAll('.overlay').forEach(ov=>{ ov.addEventListener('click',e=>{ if(e.target===ov)closeModal(ov.id); }); });
+
+// ============================================================
+// PHẦN MỚI: ÁP DỤNG THAY ĐỔI TỪ ADMIN
+// ============================================================
+function applyAdminChanges() {
+    const savedName = localStorage.getItem('admin_siteName');
+    const savedColor = localStorage.getItem('admin_mainColor');
+    const savedBanner = localStorage.getItem('admin_bannerTitle');
+
+    // Thay đổi tên website
+    if (savedName) {
+        const logo = document.querySelector('.lz-logo');
+        if (logo) logo.innerHTML = savedName;
+    }
+
+    // Thay đổi màu chủ đạo
+    if (savedColor) {
+        document.documentElement.style.setProperty('--main-color', savedColor);
+
+        const dynamicStyle = document.createElement('style');
+        dynamicStyle.innerHTML = `
+            .lz-header { 
+                background: linear-gradient(135deg, #1a1463, ${savedColor}) !important; 
+            }
+            .btn-primary, 
+            .add-cart-btn, 
+            .checkout-btn, 
+            .lz-prod-disc, 
+            .lz-search button {
+                background: linear-gradient(90deg, ${savedColor}, #ff6b4a) !important;
+            }
+            .lz-prod-price, 
+            .ci-price, 
+            .order-item-price {
+                color: ${savedColor} !important;
+            }
+            .lz-cats a.active,
+            .lz-flash-tab button.active {
+                color: ${savedColor} !important;
+                border-bottom-color: ${savedColor} !important;
+            }
+        `;
+        document.head.appendChild(dynamicStyle);
+    }
+
+    // Thay đổi tiêu đề banner
+    if (savedBanner) {
+        const bannerH2 = document.querySelector('.lz-banner-text h2');
+        if (bannerH2) bannerH2.textContent = savedBanner;
+    }
+}
+
+// Gọi hàm khi trang load
+window.addEventListener('load', applyAdminChanges);
 
 // INIT
 initProducts();

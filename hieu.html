@@ -107,7 +107,7 @@
       <div class="form-group">
         <label>Loại sản phẩm</label>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
-          <div id="pfIconPreview" style="width:52px;height:52px;background:#f0fff4;border:2px solid #00b14f;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px">📦</div>
+          <div id="pfIconPreview" style="width:52px;height:52px;background:#f0fff4;border:2px solid #00b14f;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px"></div>
         </div>
         <div class="emoji-grid" id="emojiGrid"></div>
         <input type="hidden" id="pfIcon">
@@ -129,9 +129,9 @@
 <!-- ===== DELETE CONFIRM MODAL ===== -->
 <div class="overlay" id="deleteConfirmOverlay">
   <div class="confirm-modal">
-    <div class="ci">🗑️</div>
+    <div class="ci">Xoá</div>
     <h3>Xóa sản phẩm?</h3>
-    <p id="deleteConfirmMsg">Bạn có chắc chắn muốn xóa sản phẩm này? Hành động này không thể hoàn tác.</p>
+    <p id="deleteConfirmMsg">Bạn có chắc chắn muốn xóa sản phẩm này?</p>
     <div class="confirm-btns">
       <button class="btn-cancel-del" onclick="closeModal('deleteConfirmOverlay')">Hủy</button>
       <button class="btn-confirm-del" id="confirmDelBtn">Xóa</button>
@@ -149,7 +149,7 @@
     <span id="topBarAuth"></span>
   </div>
   <div class="lz-nav">
-    <a class="lz-logo" onclick="showPage('home')">Laz<span>a</span>da</a>
+    <a class="lz-logo" onclick="showPage('home')">Ecommerce</a>
     <div class="lz-search">
       <input type="text" placeholder="Tìm kiếm sản phẩm, thương hiệu...">
       <button>🔍 TÌM KIẾM</button>
@@ -170,11 +170,11 @@
     </div>
   </div>
   <div class="lz-cats">
-    <a onclick="showPage('home')" id="catHome" class="active">🏠 Trang Chủ</a>
-    <a>📱 Điện Tử</a><a>👗 Thời Trang</a><a>🏠 Nhà Cửa</a>
-    <a>💄 Làm Đẹp</a><a>🏋️ Thể Thao</a><a>🍼 Mẹ & Bé</a>
-    <a>🎮 Gaming</a><a>🚗 Ô Tô</a><a>📚 Sách</a>
-    <a style="color:#f05b5a;font-weight:600">🔥 Flash Sale</a>
+    <a onclick="showPage('home')" id="catHome" class="active">Trang Chủ</a>
+    <a>Điện Tử</a><a> Thời Trang</a><a>Nhà Cửa</a>
+    <a>Làm Đẹp</a><a>Thể Thao</a><a>Mẹ & Bé</a>
+    <a>Gaming</a><a>Ô Tô</a><a>Sách</a>
+    <a style="color:#f05b5a;font-weight:600">Flash Sale</a>
   </div>
 </div>
 
@@ -183,20 +183,20 @@
   <div class="lz-body">
     <div class="lz-main-grid">
       <div class="lz-sidebar">
-        <div class="lz-sidebar-title">📋 Danh mục sản phẩm</div>
+        <div class="lz-sidebar-title">Danh mục sản phẩm</div>
         <ul>
-          <li><a><span class="cat-icon" style="background:#e3f2fd">📱</span>Điện Thoại & Máy Tính</a></li>
-          <li><a><span class="cat-icon" style="background:#fce4ec">👗</span>Thời Trang Nữ</a></li>
-          <li><a><span class="cat-icon" style="background:#e8f5e9">👔</span>Thời Trang Nam</a></li>
-          <li><a><span class="cat-icon" style="background:#fff3e0">🏠</span>Nhà Cửa & Đời Sống</a></li>
-          <li><a><span class="cat-icon" style="background:#fce4ec">💄</span>Sức Khỏe & Làm Đẹp</a></li>
-          <li><a><span class="cat-icon" style="background:#e8f5e9">👶</span>Mẹ & Bé</a></li>
-          <li><a><span class="cat-icon" style="background:#e3f2fd">🎮</span>Thiết Bị Điện Tử</a></li>
-          <li><a><span class="cat-icon" style="background:#fff3e0">🏋️</span>Thể Thao & Du Lịch</a></li>
-          <li><a><span class="cat-icon" style="background:#f3e5f5">🎒</span>Túi Xách & Phụ Kiện</a></li>
-          <li><a><span class="cat-icon" style="background:#e3f2fd">⌚</span>Đồng Hồ</a></li>
-          <li><a><span class="cat-icon" style="background:#fff8e1">🚗</span>Ô Tô & Xe Máy</a></li>
-          <li><a><span class="cat-icon" style="background:#e8f5e9">📚</span>Sách & Văn Phòng</a></li>
+          <li><a><span class="cat-icon" style="background:#e3f2fd"></span>Điện Thoại & Máy Tính</a></li>
+          <li><a><span class="cat-icon" style="background:#fce4ec"></span>Thời Trang Nữ</a></li>
+          <li><a><span class="cat-icon" style="background:#e8f5e9"></span>Thời Trang Nam</a></li>
+          <li><a><span class="cat-icon" style="background:#fff3e0"></span>Nhà Cửa & Đời Sống</a></li>
+          <li><a><span class="cat-icon" style="background:#fce4ec"></span>Sức Khỏe & Làm Đẹp</a></li>
+          <li><a><span class="cat-icon" style="background:#e8f5e9"></span>Mẹ & Bé</a></li>
+          <li><a><span class="cat-icon" style="background:#e3f2fd"></span>Thiết Bị Điện Tử</a></li>
+          <li><a><span class="cat-icon" style="background:#fff3e0"></span>Thể Thao & Du Lịch</a></li>
+          <li><a><span class="cat-icon" style="background:#f3e5f5"></span>Túi Xách & Phụ Kiện</a></li>
+          <li><a><span class="cat-icon" style="background:#e3f2fd"></span>Đồng Hồ</a></li>
+          <li><a><span class="cat-icon" style="background:#fff8e1"></span>Ô Tô & Xe Máy</a></li>
+          <li><a><span class="cat-icon" style="background:#e8f5e9"></span>Sách & Văn Phòng</a></li>
         </ul>
       </div>
       <div class="lz-hero">
@@ -246,11 +246,11 @@
 <div class="lz-footer">
   <div class="lz-footer-grid">
     <div class="lz-footer-col"><h4>Chăm sóc khách hàng</h4><a href="#">Trung tâm Trợ giúp</a><a href="#">Hướng dẫn mua hàng</a><a href="#">Hướng dẫn bán hàng</a><a href="#">Chính sách hoàn trả</a><a href="#">Liên hệ</a></div>
-    <div class="lz-footer-col"><h4>Về Lazada</h4><a href="#">Giới thiệu về Lazada</a><a href="#">Tuyển dụng</a><a href="#">Điều khoản sử dụng</a><a href="#">Chính sách bảo mật</a></div>
+    <div class="lz-footer-col"><h4>Về chúng tôi</h4><a href="#">Giới thiệu</a><a href="#">Tuyển dụng</a><a href="#">Điều khoản sử dụng</a><a href="#">Chính sách bảo mật</a></div>
     <div class="lz-footer-col"><h4>Thanh toán</h4><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px"><span style="background:#f5f5f5;padding:4px 8px;border-radius:4px;font-size:11px;border:1px solid #ddd">VISA</span><span style="background:#f5f5f5;padding:4px 8px;border-radius:4px;font-size:11px;border:1px solid #ddd">Mastercard</span><span style="background:#f5f5f5;padding:4px 8px;border-radius:4px;font-size:11px;border:1px solid #ddd">MoMo</span><span style="background:#f5f5f5;padding:4px 8px;border-radius:4px;font-size:11px;border:1px solid #ddd">ZaloPay</span><span style="background:#f5f5f5;padding:4px 8px;border-radius:4px;font-size:11px;border:1px solid #ddd">COD</span></div></div>
     <div class="lz-footer-col"><h4>Kết nối với chúng tôi</h4><div style="display:flex;gap:8px;margin-top:4px"><span style="background:#1877f2;color:#fff;padding:5px 10px;border-radius:4px;font-size:11px;cursor:pointer">Facebook</span><span style="background:#c62828;color:#fff;padding:5px 10px;border-radius:4px;font-size:11px;cursor:pointer">YouTube</span></div></div>
   </div>
-  <div class="lz-footer-bottom"><p>© 2024 Lazada Vietnam. Tất cả các quyền được bảo lưu.</p></div>
+  <div class="lz-footer-bottom"><p>© 2026 Liên hệ với chúng tôi qua địa chỉ *******</p></div>
 </div>
 
 <script src = "hieu.js"></script> 
