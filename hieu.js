@@ -14,10 +14,29 @@ let allProducts = [
   {id:8,name:'Nồi Chiên Không Dầu AceCook',icon:'https://i.pinimg.com/736x/06/dd/b6/06ddb6e51ef064bfb5842a099e2d84aa.jpg',price:1290000,ori:2190000,disc:41,status:'active',sellerOwned:false},
   {id:9,name:'Vitamin C Pharmacy',icon:'https://i.pinimg.com/736x/d9/de/e1/d9dee1dff4bc97cc67b4f0d483173980.jpg',price:285000,ori:420000,disc:32,status:'active',sellerOwned:false},
   {id:10,name:'Bàn Chải Điện Colgate',icon:'https://i.pinimg.com/736x/a5/d6/d5/a5d6d548a5f03ca7a28f7dec3db977b0.jpg',price:590000,ori:890000,disc:34,status:'active',sellerOwned:false},
+  {id:11, name:'Máy Tăm Nước Panasonic', icon:'https://i.pinimg.com/736x/7f/11/b5/7f11b58760bc2f928e1c494bdcbebb9c.jpg', price:1250000, ori:1800000, disc:31, status:'active', sellerOwned:false},
+  {id:12, name:'Áo Bóng Đá Manchester United', icon:'https://i.pinimg.com/736x/e3/d2/26/e3d226a2bd6dc59cec014349cdddbc2e.jpg', price:850000, ori:1200000, disc:29, status:'active', sellerOwned:true},
+  {id:13, name:'Vợt Cầu Lông Yonex 1000zz', icon:'https://i.pinimg.com/736x/30/69/a6/3069a67a901069a6b849bfff9f656178.jpg', price:9900000, ori:11500000, disc:14, status:'active', sellerOwned:false},
+  {id:14, name:'Cặp sách Degrey', icon:'https://i.pinimg.com/736x/8b/98/5a/8b985a52779e7e0565b6eb24e1b96f76.jpg', price:650000, ori:950000, disc:32, status:'active', sellerOwned:false},
+  {id:15, name:'Lego Ninjago', icon:'https://i.pinimg.com/736x/42/df/1b/42df1bab743a5e8e0e530feb7d920288.jpg', price:3200000, ori:4500000, disc:29, status:'active', sellerOwned:true},
+  {id:16, name:'Áo Choàng Tàng Hình Của Doraemon', icon:'https://i.pinimg.com/736x/21/0c/cc/210cccb91cd4e5f770b66177f5492dba.jpg', price:1100000, ori:1550000, disc:29, status:'active', sellerOwned:false},
+  {id:17, name:'Đồng Hồ Ngưng Đọng Thời Gian', icon:'https://i.pinimg.com/736x/92/44/87/9244875ae0a2fc831f90ce3e8e112e36.jpg', price:450000, ori:720000, disc:38, status:'active', sellerOwned:false},
+  {id:18, name:'Đồng hồ Ben 10 Alien Ultimate', icon:'https://i.pinimg.com/736x/8e/fd/14/8efd146b3c054c830daccbb2f3cc7c9d.jpg', price:2800000, ori:3600000, disc:22, status:'active', sellerOwned:false},
+  {id:19, name:'Sách Hoàng Tử Bé', icon:'https://i.pinimg.com/736x/17/51/ae/1751ae921f523867b85b1e732dcd949e.jpg', price:3500000, ori:4200000, disc:17, status:'active', sellerOwned:true},
+  {id:20, name:'Chuột Không Dây Logitech MX Master', icon:'https://i.pinimg.com/736x/f5/2a/03/f52a03fffef89546778908c26d8e96cf.jpg', price:1950000, ori:2500000, disc:22, status:'active', sellerOwned:false},
+  {id:21, name:'Tivi Coocaa 50 inches', icon:'https://i.pinimg.com/736x/54/5d/e2/545de284367bf4513b6ce456f0341db1.jpg', price:1650000, ori:2100000, disc:21, status:'active', sellerOwned:false},
+  {id:22, name:'Áo Giữ Nhiệt Faraha', icon:'https://i.pinimg.com/736x/90/72/f8/9072f8dbae0edc6335d8afcb031c9755.jpg', price:6800000, ori:8500000, disc:20, status:'active', sellerOwned:false},
+  {id:23, name:'Đồng Hồ Thông Minh Apple Watch SE', icon:'https://i.pinimg.com/736x/5c/2a/91/5c2a91eb9dd6cf8bcbf800bba4a9ef1a.jpg', price:5400000, ori:7000000, disc:23, status:'active', sellerOwned:true},
+  {id:24, name:'PS5', icon:'https://i.pinimg.com/736x/30/35/7f/30357f6208f2ce95bfebf0259083b29d.jpg', price:4200000, ori:5800000, disc:28, status:'active', sellerOwned:false},
+  {id:25, name:'G-IDLE Tomboy Album', icon:'https://i.pinimg.com/736x/85/5f/73/855f737aafe4a9fcf9dfe9ab766e5a0f.jpg', price:8900000, ori:12000000, disc:26, status:'active', sellerOwned:false},
+  {id:26, name:'Sen Đá', icon:'https://i.pinimg.com/736x/e1/e3/81/e1e381302c2bb2dbf80f3e148572dd12.jpg', price:1350000, ori:1900000, disc:29, status:'active', sellerOwned:false},
+  {id:27, name:'Kiếm Kim Cương Minecraft', icon:'https://i.pinimg.com/736x/43/7c/11/437c11f6cd55d6366a9c06f1f42d13c3.jpg', price:550000, ori:800000, disc:31, status:'active', sellerOwned:false},
+  {id:28, name:'Găng tay Adidas Predator', icon:'https://i.pinimg.com/736x/02/85/01/02850105ae45b3438cbdedadc729c975.jpg', price:390000, ori:600000, disc:35, status:'active', sellerOwned:true},
+  {id:29, name:'Sạc Dự Phòng Samsung 20000mAh', icon:'https://i.pinimg.com/736x/a8/69/06/a869063887ccf1d4a7bf298b10a1040c.jpg', price:850000, ori:1100000, disc:23, status:'active', sellerOwned:false},
+  {id:30, name:'SkateBoard Yoric Verse2', icon:'https://i.pinimg.com/736x/42/77/10/427710ab16bc59b81d02b7cbd44c95fe.jpg', price:450000, ori:650000, disc:31, status:'active', sellerOwned:false}
 ];
 
 
-const EMOJIS=['Phone','Laptop','Device','Camera','Appliance','Gaming','Television','Fashion','Daily','Family','Interior','Food','Medical','Transport'];
 
 // ============================================================
 // STATE
@@ -259,7 +278,7 @@ function renderCart(){
         <div class="cart-shop-hdr"> Official Store</div>
         ${cart.map(c=>`<div class="cart-item">
           <input type="checkbox" class="item-cb" ${c.checked?'checked':''} onchange="toggleCheck(${c.product.id})">
-          <div class="cart-img">${c.product.icon}</div>
+          <div class="cart-img"><img src =${c.product.icon} style ="max-height:100%;max-width:100%"></div>
           <div class="cart-info">
             <div class="ci-name">${c.product.name}</div>
             <div><span class="ci-price">${fmt(c.product.price)}</span>${c.product.ori>c.product.price?`<span class="ci-ori">${fmt(c.product.ori)}</span>`:''}</div>
@@ -295,12 +314,6 @@ function doCheckout(){
 }
 
 // ============================================================
-// ORDERS
-// ============================================================
-
-
-
-// ============================================================
 // SELLER DASHBOARD
 // ============================================================
 function getMyProducts(){ return allProducts.filter(p=>p.sellerOwned); }
@@ -318,13 +331,8 @@ function renderSeller(){
     return;
   }
   const myProds= getMyProducts();
-  const totalRevenue=myProds.reduce((s,p)=>s+p.price*(p.sold||0),0);
-  const activeCount=myProds.filter(p=>p.status==='active').length;
-  const totalStock=myProds.reduce((s,p)=>s+(p.stock||0),0);
-
   box.innerHTML=`<div class="seller-layout">
     <div class="seller-sidebar">
-      <div class="seller-sidebar-brand"><h3> ${currentUser.shopName||'Shop'}</h3><p>${currentUser.email}</p></div>
       <nav class="seller-nav">
         <a class="${sellerTab==='dashboard'?'active':''}" onclick="switchSellerTab('dashboard')"><span class="nav-icon"></span>Tổng quan</a>
         <a class="${sellerTab==='products'?'active':''}" onclick="switchSellerTab('products')"><span class="nav-icon"></span>Quản lý sản phẩm</a>
@@ -356,13 +364,11 @@ function renderSellerTab(){
 
 function renderDashboard(){
   const myProds=getMyProducts();
-  const totalRevenue=myProds.reduce((s,p)=>s+p.price*(p.sold||0),0);
-  const activeCount=myProds.filter(p=>p.status==='active').length;
   return `${myProds.length===0
       ? `<div class="empty-table"><div class="ei"></div><p>Bạn chưa có sản phẩm nào.<br>Thêm sản phẩm</p><button class="btn-add-product" style="margin:10px auto" onclick="openProductForm(null)">➕ Thêm Sản Phẩm</button></div>`
       : `<table class="prod-table"><thead><tr><th>Sản phẩm</th><th>Giá bán</th><th>Trạng thái</th></tr></thead><tbody>
       ${myProds.map(p=>`<tr>
-        <td><div class="prod-name-cell"><div class="prod-thumb">${p.icon}</div><div><div class="pn-name">${p.name}</div><div class="pn-cat">${p.icon}</div></div></div></td>
+        <td><div class="prod-name-cell"><div class="prod-thumb"><img src = ${p.icon} style = "max-width:100%;max-height:100%"></div><div><div class="pn-name">${p.name}</div></div></div></td>
         <td><div class="tbl-price">${fmt(p.price)}</div>${p.disc>0?`<div class="tbl-discount">-${p.disc}%</div>`:''}</td>
         <td><span class="${p.status==='active'?'status-active':'status-inactive'}"></span>${p.status==='active'?'Đang bán':'Tạm ngưng'}</td>
       </tr>`).join('')}
@@ -392,7 +398,7 @@ function renderProductTable(prods){
   return `<table class="prod-table">
     <thead><tr><th>Sản phẩm</th><th>Giá bán</th><th>Giá gốc</th><th>Giảm giá</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
     <tbody>${prods.map(p=>`<tr id="prod-row-${p.id}">
-      <td><div class="prod-name-cell"><div class="prod-thumb">${p.icon}</div><div><div class="pn-name">${p.name}</div><div class="pn-cat">${p.icon}</div></div></div></td>
+      <td><div class="prod-name-cell"><div class="prod-thumb"><img src = ${p.icon} style = "max-width:100%;max-height:100%"></div><div><div class="pn-name">${p.name}</div></div></div></td>
       <td><div class="tbl-price">${fmt(p.price)}</div></td>
       <td><div style="color:#aaa;font-size:12px">${p.ori>=p.price?fmt(p.ori):'--'}</div></td>
       <td><span class="tbl-discount">${p.disc>=0?'-'+p.disc+'%':'--'}</span></td>
@@ -418,7 +424,7 @@ function filterSellerProducts(name='', status=''){
 function toggleProductStatus(pid){
   const p=allProducts.find(p=>p.id===pid); if(!p)return;
   p.status=p.status==='active'?'inactive':'active';
-  showToast('success',`${p.status==='active'?'Đã mở bán':'Đang tạm ngừng bán'}: ${p.name.slice(0,25)}...`);
+  showToast('success',`${p.status==='active'?'Đã mở bán':'Đang tạm ngừng bán'}: ${p.name}`);
   switchSellerTab('products');
   refreshHomeProducts();
 }
@@ -429,14 +435,12 @@ function toggleProductStatus(pid){
 function openProductForm(pid){
   editingProductId=pid;
   // Build emoji grid
-  const grid=document.getElementById('emojiGrid');
-  grid.innerHTML=EMOJIS.map(e=>`<div class="emoji-opt ${e==='?'}" onclick="selectEmoji('${e.split('').slice(0,3).join('')}')">${e}</div>`).join('');
 
   if(pid){
     const p=allProducts.find(x=>x.id===pid);
     document.getElementById('pfTitle').textContent=' Chỉnh Sửa Sản Phẩm';
-    document.getElementById('pfIcon').value=p.icon;
     document.getElementById('pfName').value=p.name;
+    document.getElementById('pfImage').value=p.icon;
     document.getElementById('pfPrice').value=p.price;
     document.getElementById('pfOri').value=p.ori||'';
     // highlight selected emoji
@@ -444,6 +448,7 @@ function openProductForm(pid){
   } else {
     document.getElementById('pfTitle').textContent=' Thêm Sản Phẩm Mới';
     document.getElementById('pfName').value='';
+    document.getElementById('pfImage').value='';
     document.getElementById('pfPrice').value='';
     document.getElementById('pfOri').value='';
   }
@@ -460,7 +465,7 @@ function saveProduct(){
   const name=document.getElementById('pfName').value.trim();
   const price=parseInt(document.getElementById('pfPrice').value)||0;
   if(!name||!price){ showToast('error','Vui lòng điền đủ thông tin'); return; }
-  const icon=document.getElementById('pfIcon').value;
+  const icon=document.getElementById('pfImage').value;
   const ori=parseInt(document.getElementById('pfOri').value)||price;
   const disc=calcDisc(price,ori);
 
@@ -513,21 +518,6 @@ function showToast(type,msg){
   clearTimeout(toastTimer);
   toastTimer=setTimeout(()=>t.classList.remove('show'),3200);
 }
-
-// ============================================================
-// BANNER SLIDESHOW
-// ============================================================
-let cur=0;
-const slides=['s1','s2','s3'],dots=['d1','d2','d3'];
-function goSlide(n){
-  document.getElementById(slides[cur]).classList.remove('active');
-  document.getElementById(dots[cur]).classList.remove('active');
-  cur=n;
-  document.getElementById(slides[cur]).classList.add('active');
-  document.getElementById(dots[cur]).classList.add('active');
-}
-setInterval(()=>goSlide((cur+1)%3),3600);
-dots.forEach((d,i)=>document.getElementById(d).addEventListener('click',()=>goSlide(i)));
 
 // FLASH SALE COUNTDOWN
 let secs=2*3600+34*60+15;
