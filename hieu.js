@@ -4,16 +4,16 @@
 
 // danh sách sản phẩm
 let allProducts = [
-  {id:1,name:'IPhone 17 Promax',icon:'Phone',price:8990000,ori:12990000,disc:30,status:'active',sellerOwned:false},
-  {id:2,name:'Tai nghe Baseus Wm2',icon:'Device',price:5490000,ori:9990000,disc:45,status:'active',sellerOwned:false},
-  {id:3,name:'Laptop ThinkPad X1 Carbon Gen 15',icon:'Laptop',price:12490000,ori:16590000,disc:25,status:'active',sellerOwned:false},
-  {id:4,name:'Apple Watch Series 10',icon:'Appliance',price:9290000,ori:11590000,disc:20,status:'active',sellerOwned:false},
-  {id:5,name:'Máy ảnh Canon V12',icon:'Camera',price:14990000,ori:22990000,disc:35,status:'active',sellerOwned:false},
-  {id:6,name:'Giày Nike AF1',icon:'Fashion',price:2450000,ori:3200000,disc:23,status:'active',sellerOwned:false},
-  {id:7,name:'Hộp Gói quà',icon:'Container',price:389000,ori:650000,disc:40,status:'active',sellerOwned:false},
-  {id:8,name:'Nồi Chiên Không Dầu AceCook',icon:'Cook',price:1290000,ori:2190000,disc:41,status:'active',sellerOwned:false},
-  {id:9,name:'Vitamin C Pharmacy',icon:'Medicine',price:285000,ori:420000,disc:32,status:'active',sellerOwned:false},
-  {id:10,name:'Bàn Chải Điện Colgate',icon:'Daily',price:590000,ori:890000,disc:34,status:'active',sellerOwned:false},
+  {id:1,name:'IPhone 17 Promax',icon:'https://i.pinimg.com/736x/19/28/7c/19287c8799f8c0ce38103cfe7a240bea.jpg',price:8990000,ori:12990000,disc:30,status:'active',sellerOwned:false},
+  {id:2,name:'Tai nghe Baseus Wm2',icon:'https://i.pinimg.com/736x/32/53/ee/3253eee1d4d2f9079076d005fce8631a.jpg',price:5490000,ori:9990000,disc:45,status:'active',sellerOwned:false},
+  {id:3,name:'Laptop ThinkPad X1 Carbon Gen 15',icon:'https://i.pinimg.com/736x/10/41/61/1041617893c350c59c14bca6639f102e.jpg',price:12490000,ori:16590000,disc:25,status:'active',sellerOwned:false},
+  {id:4,name:'Apple Watch Series 10',icon:'https://i.pinimg.com/736x/32/e1/60/32e16036e4c88b0079199a697b464bdc.jpg',price:9290000,ori:11590000,disc:20,status:'active',sellerOwned:false},
+  {id:5,name:'Máy ảnh Canon V12',icon:'https://i.pinimg.com/736x/0c/30/ab/0c30ab1f0e78f71a0e66be03fcc79c57.jpg',price:14990000,ori:22990000,disc:35,status:'active',sellerOwned:false},
+  {id:6,name:'Giày Nike AF1',icon:"https://i.pinimg.com/736x/63/e9/da/63e9da7962190e04440a5c8ba2e65aa0.jpg",price:2450000,ori:3200000,disc:23,status:'active',sellerOwned:false},
+  {id:7,name:'Hộp Gói quà',icon:'https://i.pinimg.com/736x/88/68/c1/8868c1254d97a25cc596f634f7f7ebaf.jpg',price:389000,ori:650000,disc:40,status:'active',sellerOwned:false},
+  {id:8,name:'Nồi Chiên Không Dầu AceCook',icon:'https://i.pinimg.com/736x/06/dd/b6/06ddb6e51ef064bfb5842a099e2d84aa.jpg',price:1290000,ori:2190000,disc:41,status:'active',sellerOwned:false},
+  {id:9,name:'Vitamin C Pharmacy',icon:'https://i.pinimg.com/736x/d9/de/e1/d9dee1dff4bc97cc67b4f0d483173980.jpg',price:285000,ori:420000,disc:32,status:'active',sellerOwned:false},
+  {id:10,name:'Bàn Chải Điện Colgate',icon:'https://i.pinimg.com/736x/a5/d6/d5/a5d6d548a5f03ca7a28f7dec3db977b0.jpg',price:590000,ori:890000,disc:34,status:'active',sellerOwned:false},
 ];
 
 
@@ -188,7 +188,7 @@ function showPage(name){
 function makeProductCard(p){
   return `<div class="lz-prod-card">
     <div class="lz-prod-img">
-      ${p.icon}
+      <img src = ${p.icon} style = "max-height:100%;max-width:100%">
     </div>
     <div class="lz-prod-info">
       <div class="lz-prod-name">${p.name}</div>
@@ -500,11 +500,6 @@ function doDeleteProduct(pid){
   refreshHomeProducts();
   switchSellerTab('products');
 }
-
-// ============================================================
-// SELLER: OTHER TABS
-// ============================================================
-
 
 // ============================================================
 // TOAST

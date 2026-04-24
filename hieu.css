@@ -111,7 +111,7 @@ body{background:#f4f4f4;color:#333;font-size:13px}
 .lz-banner-text{color:#fff;z-index:1;position:relative}
 .lz-banner-text h2{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:7px;color:aquamarine;}
 .lz-banner-text p{font-size:13px;opacity:0.9;margin-bottom:13px;color:aquamarine}
-.btn-banner{background:#90caf9;color:aquamarine;padding:7px 18px;border-radius:20px;font-weight:700;font-size:12px;display:inline-block;cursor:pointer}
+.btn-banner{background:#90caf9;color:black;padding:7px 18px;border-radius:20px;font-weight:700;font-size:12px;display:inline-block;cursor:pointer}
 .lz-banner-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
 .lz-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.3s}
 .lz-dot.active{background:#fff;width:18px;border-radius:4px}
