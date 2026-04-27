@@ -365,7 +365,7 @@ function renderSellerTab(){
 function renderDashboard(){
   const myProds=getMyProducts();
   return `${myProds.length===0
-      ? `<div class="empty-table"><div class="ei"></div><p>Bạn chưa có sản phẩm nào.<br>Thêm sản phẩm</p><button class="btn-add-product" style="margin:10px auto" onclick="openProductForm(null)">➕ Thêm Sản Phẩm</button></div>`
+      ? `<div class="empty-table"><div class="ei"></div><p>Bạn chưa có sản phẩm nào.<br>Thêm sản phẩm</p><button class="btn-add-product" style="margin:10px auto" onclick="openProductForm(null)">Thêm Sản Phẩm</button></div>`
       : `<table class="prod-table"><thead><tr><th>Sản phẩm</th><th>Giá bán</th><th>Trạng thái</th></tr></thead><tbody>
       ${myProds.map(p=>`<tr>
         <td><div class="prod-name-cell"><div class="prod-thumb"><img src = ${p.icon} style = "max-width:100%;max-height:100%"></div><div><div class="pn-name">${p.name}</div></div></div></td>
@@ -404,7 +404,7 @@ function renderProductTable(prods){
       <td><span class="tbl-discount">${p.disc>=0?'-'+p.disc+'%':'--'}</span></td>
       <td><span class="${p.status==='active'?'status-active':'status-inactive'}"></span>${p.status==='active'?'Đang bán':'Tạm ngưng'}</td>
       <td><div class="action-btns">
-        <button class="btn-edit" onclick="openProductForm(${p.id})">✏️ Sửa</button>
+        <button class="btn-edit" onclick="openProductForm(${p.id})">Sửa</button>
         <button class="btn-toggle-active" onclick="toggleProductStatus(${p.id})">${p.status==='active'?'Tạm ngưng':' Kích hoạt'}</button>
         <button class="btn-del" onclick="confirmDelete(${p.id})">Xóa</button>
       </div></td>
