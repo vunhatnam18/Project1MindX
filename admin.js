@@ -1,15 +1,6 @@
 
 // ADMIN JS - FULL VERSION
 
-
-let allProducts = [];
-let allSellers = [];
-let allBuyers = [];
-let allOrders = [];
-let allVouchers = [];
-let notifications = [];
-
-// UTILS 
 const fmt = (n) => Number(n).toLocaleString('vi-VN') + '₫';
 
 function loadAdminData() {
@@ -445,7 +436,7 @@ function deleteSeller(id) {
 // LOGOUT 
 function logoutAdmin() {
   if (confirm('Đăng xuất khỏi trang admin?')) {
-    window.location.href = 'hieu.html';
+    window.location.href = 'scene.html';
   }
 }
 
